@@ -5,7 +5,7 @@ RUN mvn clean package
 
 FROM openjdk:11
 VOLUME /tmp
-EXPOSE 8888
+EXPOSE 8999
 ARG JAR_FILE=target/gateway-service-0.0.1-SNAPSHOT.jar
 COPY --from=build /${JAR_FILE} ./app.jar
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
